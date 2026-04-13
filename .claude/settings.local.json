@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import inspect; from awscrt import s3; help\\(s3.S3Client.__init__\\)\")",
+      "Bash(curl -v http://lmcache-bucket.localhost:9000/)",
+      "Bash(curl -s http://localhost:9000/minio/health/live)",
+      "Bash(minio --version)",
+      "Read(//usr/local/bin/**)",
+      "Read(//home/ext_yiti6755_colorado_edu/bin/**)",
+      "Read(//home/ext_yiti6755_colorado_edu/minio-data/**)",
+      "Read(//tmp/**)",
+      "Bash(ls /data/minio*)",
+      "Bash(find / -name \"minio\" -type d)",
+      "Bash(curl -v -u minioadmin:minioadmin http://lmcache-bucket.localhost:9000/)",
+      "Bash(nvidia-smi)",
+      "Bash(xargs kill:*)",
+      "Bash(bash /home/ext_yiti6755_colorado_edu/LMCache_minIO/start_minio.sh)",
+      "Bash(bash /home/ext_yiti6755_colorado_edu/LMCache_minIO/start_controller.sh)",
+      "Bash(python3 -c \"import json,sys; r=json.load\\(sys.stdin\\); print\\('Response:', r['choices'][0]['text']\\)\")",
+      "Bash(python3 -c \"import json,sys; r=json.load\\(sys.stdin\\); print\\('Output:', r['choices'][0]['text']\\)\")",
+      "Bash(python3 admission_gate.py)",
+      "Bash(curl -s \"http://localhost:9000/lmcache-bucket/\")"
+    ]
+  }
+}

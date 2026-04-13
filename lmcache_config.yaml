@@ -1,0 +1,31 @@
+chunk_size: 6
+local_cpu: False
+save_unfull_chunk: False
+remote_url: "s3://lmcache-bucket.localhost:9000"
+remote_serde: "naive"
+blocking_timeout_secs: 10
+
+# cache controller configurations
+enable_controller: True
+lmcache_instance_id: "dev"
+controller_pull_url: "localhost:8300"
+controller_reply_url: "localhost:8400"
+lmcache_worker_ports: [8001]
+
+extra_config:
+  save_chunk_meta: False
+  s3_num_io_threads: 64
+  s3_prefer_http2: False
+  s3_region: "us-east-1"
+  s3_enable_s3express: False
+  disable_tls: True
+  aws_access_key_id: "minioadmin"
+  aws_secret_access_key: "minioadmin"
+  # GMS integration: remove or comment out to disable
+  gms_host: "localhost"
+  gms_port: 8500
+  gms_worker_host: "localhost"
+  # gms_worker_port 必须与 vllm --port 一致，用于唯一标识本进程。
+  # PD 分离时每个进程用各自的配置文件或用环境变量覆盖此值。
+  # 例：prefill=8000  decode-0=8001  decode-1=8002
+  gms_worker_port: 8000
